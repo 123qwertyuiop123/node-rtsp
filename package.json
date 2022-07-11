@@ -6,7 +6,11 @@
     "websocket-stream": "^5.5.2"
   },
   "dependencies": {
+    "ailabel": "^5.1.15",
+    "cropper": "^4.1.0",
+    "cropperjs": "^1.5.12",
     "flv.js": "^1.6.2",
+    "html2canvas": "^1.4.1",
     "node-media-server": "^2.4.1",
     "rtsp2web": "^2.1.0",
     "video.js": "^7.19.2"
