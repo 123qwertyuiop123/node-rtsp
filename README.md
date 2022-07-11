@@ -2,11 +2,8 @@
 rtsp转码播放
 
 - 使用vlc模拟rtsp推流/拉流
-
 - 使用ffmpeg对rtsp进行转码
-
 - 使用node服务就行转码后推流
-
 - 使用flv.js进行播放展示
 
 # 使用
@@ -17,3 +14,7 @@ rtsp转码播放
 ffmpeg -i rtsp:[地址] -c copy -f flv rtmp://localhost:1935/live/test[为node服务的地址，可以修改]
 - 运行index3.html
 - 截屏使用canvas进行操作
+
+# 其他文件
+- index.js与index.html为其他方法测试文件，无用，可以删除
+- index2.js与index2.html为其他方法测试文件，无用，可以删除
