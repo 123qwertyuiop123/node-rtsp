@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "express": "^4.18.1",
+    "express-ws": "^5.0.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "websocket-stream": "^5.5.2"
+  },
+  "dependencies": {
+    "flv.js": "^1.6.2",
+    "node-media-server": "^2.4.1",
+    "rtsp2web": "^2.1.0",
+    "video.js": "^7.19.2"
+  }
+}

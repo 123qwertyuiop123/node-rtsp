@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rtsp</title>
+    <script src="./node_modules/flv.js/dist/flv.min.js"></script>
+</head>
+<style>
+    .cutImg>img {
+        width: 400px;
+        height: auto;
+    }
+</style>
+
+<body>
+
+    <!-- 视频播放 -->
+    <video id="video" height="300" width="400" controls autoplay></video>
+    <!-- 截图按钮 -->
+    <button onclick="screenShot()">截屏</button>
+    <!-- 展示在页面上的标签 -->
+    <div class="cutImg" id="image-box">
+
+    </div>
+    <script>
+        if (flvjs.isSupported()) {
+            let videoElement = document.getElementById('video');
+            let flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: 'http://localhost:8002/live/test.flv'
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load();
+            flvPlayer.play();
+        }
+        let imgList = []
+        //截图
+        function screenShot() {
+            let videoElement = document.getElementById('video');
+            let canvas = document.createElement('canvas')
+            let width = window.innerWidth
+            let height = (window.innerHeight / 16) * 9
+            canvas.width = width
+            canvas.height = height
+            const ctx = canvas.getContext('2d')
+            ctx.drawImage(videoElement, 0, 0, width, height)
+            imgList.push(canvas.toDataURL('image/png'))
+            show()
+        }
+
+        // 循环图片列表
+        function show() {
+            let imageBox = document.getElementById('image-box')
+            imageBox.innerHTML = ''
+
+            if (imgList.length !== 0) {
+                for (let i = 0; i < imgList.length; i++) {
+                    showImage(imgList[i])
+                }
+            }
+        }
+        // 添加图片
+        function showImage(imgsrc) {
+            let imageBox = document.getElementById('image-box')
+            let img = document.createElement('img')
+            img.src = imgsrc
+            imageBox.appendChild(img)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rtsp</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="width: 600px; height:600px;"></canvas>
+    <script src="https://jsmpeg.com/jsmpeg.min.js"></script>
+    <script>
+        let rtsp = 'rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4'
+        window.onload = () => {
+            new JSMpeg.Player(`ws://localhost:8800/rtsp?url=${btoa(rtsp)}`, {
+                canvas: document.getElementById('canvas')
+            })
+        }
+    </script>
+</body>
+
+</html>
