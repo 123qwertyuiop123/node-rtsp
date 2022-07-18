@@ -12,5 +12,8 @@ rtsp转码播放
 - 启动node服务，运行npx nodemon index.js
 - 运行cmd命令打开终端，使用ffmpeg命令对rtsp流进行转码
 ffmpeg -i rtsp:[地址] -c copy -f flv rtmp://localhost:1935/live/test[为node服务的地址，可以修改]
+~~~
+例如：ffmpeg -i rtsp:127.0.0.1:8554/test -c copy -f flv rtmp://localhost:1935/live/test
+~~~
 - 运行前端项目web-rtsp
 
